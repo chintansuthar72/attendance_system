@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 24px;
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px 10px 10px 10px;
+            margin: 0;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #block {
+            width: 50%;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input[type="date"], select {
+            width: 95%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #submit, #back {
+            padding: 10px 20px;
+            border: none;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="block">
+        <h1>Filter Form</h1>
+        <a href="/data/home/"><button id="back" >Go to home</button></a>
+        <form method="post" action="/data/filtered/">
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" required><br>
+
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" required><br>
+
+            <label for="courses">Select a Course:</label>
+            <select id="courses" name="courses">
+                {% for course in courses %}
+                    <option value="{{ course }}">{{ course }}</option>
+                {% endfor %}
+            </select><br>
+
+            <input type="submit" id="submit">
+        </form>
+    </div>
+</body>
+</html>

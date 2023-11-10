@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update course registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        #container {
+            width: 50%;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        #title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        select, input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        #submit, #back {
+            padding: 10px 20px;
+            border: none;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .note {
+            font-size: 14px;
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <a href="/data/home/"><button id="back">Go to home</button></a>
+        <h1 id="title">Select Course</h1>
+        <form method="post" action="/data/update_registration/" enctype="multipart/form-data">
+            <label for="courses">Select a Course:</label>
+            <select id="courses" name="courses">
+                {% for course in courses %}
+                    <option value="{{ course }}">{{ course }}</option>
+                {% endfor %}
+            </select>
+            
+            <label for="excel_file">Upload an Excel File:</label>
+            <input type="file" id="excel_file" name="excel_file" accept=".xlsx, .xls" required>
+            
+            <input type="submit" id="submit" value="Submit">
+        </form>
+        <p class="note">Note: The Excel file should only contain one column with student IDs. Column name must be 'student_id'.</p>
+    </div>
+</body>
+</html>

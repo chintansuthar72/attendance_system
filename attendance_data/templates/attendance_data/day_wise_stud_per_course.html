@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day wise attendance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        #container {
+            width: 100%;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        #title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        #submit, #back {
+            padding: 10px 20px;
+            border: none;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <a href="/data/home/"><button id="back" >Go to home</button></a>
+        <h2>Course : {{ selected_course }}</h2>
+        <table>
+            <tr>
+                <th>Student ID</th>
+                {% for date in dates %}
+                    <th>{{ date }}</th>
+                {% endfor %}
+                <th>Ratio</th>
+                <th>Percentage attendance</th>
+            </tr>
+            {% for t in data %}
+                <tr>
+                    <td>{{ t.StudentID }}</td>
+                    {% for x in t.attendance %}
+                        <td>{{ x }}</td>
+                    {% endfor %}
+                    <td>{{ t.ratio }}</td>
+                    <td>{{ t.percentage }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

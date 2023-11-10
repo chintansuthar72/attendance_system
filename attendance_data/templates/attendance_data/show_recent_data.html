@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Example</title>
+</head>
+<body>
+    <a href="/data/filter/">Apply different filters</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Course No</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+                <tr>
+                    <td>{{ row.ID }}</td>
+                    <td>{{ row.Date }}</td>
+                    <td>{{ row.Time }}</td>
+                    <td>{{ row.StudentID }}</td>
+                    <td>{{ row.StudentName }}</td>
+                    <td>{{ row.CourseNo }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

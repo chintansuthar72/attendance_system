@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Course Registration Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        #container {
+            width: 50%;
+            margin: 0 auto;
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        #message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #buttons {
+            display: flex;
+            justify-content: space-between;
+        }
+        #go-home, #update-registration {
+            padding: 10px 20px;
+            border: none;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        {% if success %}
+            <h1 id="message">Course Registration is updated.</h1>
+        {% else %}
+            <h1 id="message">Course Registration is not updated. Try again.</h1>
+        {% endif %}
+            <div id="buttons">
+            <a href="/data/home/"><button id="go-home">Go to Home</button></a>
+            <a href="/data/update_registration/"><button id="update-registration">Update another course's registration</button></a>
+        </div>
+    </div>
+</body>
+</html>

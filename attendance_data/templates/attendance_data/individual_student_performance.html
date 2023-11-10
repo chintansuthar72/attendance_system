@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Individual performance</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        #container {
+            width: 50%;
+            margin: 0 auto;
+            text-align: left;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        #title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        #submit, #back {
+            padding: 10px 20px;
+            border: none;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #3498db; /* Change border color to match the button */
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 16px; /* Adjust font size */
+            color: #333; /* Adjust text color */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <a href="/data/home/"><button id="back" >Go to home</button></a>
+        <h1 id="title">Enter Student ID</h1>
+        <form>
+            <input type="text" name="student_id" placeholder="Enter Student ID" required>
+            <input type="submit" value="Submit" id="submit">
+        </form>
+        <br>
+        <hr>
+        <h2>Selected Student ID: {{ selected_student_id }}</h2>
+        <table>
+            <tr>
+                <th>Course</th>
+                <th>Lectures held</th>
+                <th>Lectures attended</th>
+                <th>Percentage attendance</th>
+            </tr>
+            {% if selected_student_id is not None %}
+                {% for t in data %}
+                    <tr>
+                        <td>{{ t.CourseNo }}</td>
+                        <td>{{ t.total_lecture_count }}</td>
+                        <td>{{ t.attended_count }}</td>
+                        <td>{{ t.percentage }}</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+</body>
+</html>
