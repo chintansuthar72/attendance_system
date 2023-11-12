@@ -19,7 +19,7 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 app.conf.beat_schedule = {
     'fetch-attendance-data': {
         'task': 'attendance_data.tasks.fetch_attendance_data',
-        'schedule': crontab(hour=15, minute=12),
+        'schedule': crontab(hour=0, minute=30),
     },
     'send-notification-mails' : {
         'task' : 'send_notification.tasks.send_mails',

@@ -1,0 +1,11 @@
+django
+pandas
+openpyxl
+django-celery-beat
+celery
+django-celery-results
+pyodbc
+psycopg-binary
+python-dotenv
+mssql-django
+psycopg2
