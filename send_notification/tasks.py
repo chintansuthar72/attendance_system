@@ -20,7 +20,7 @@ def send_mails(self):
         content = []
         for absent in absents:
             message1 = (
-                "You have missed the class of " + course + " on " + str(datetime.now().date() + timedelta(-1)),
+                "[" + str(absent) + "]" + "You have missed the class of " + course + " on " + str(datetime.now().date() + timedelta(-1)),
                 "",
                 'settings.EMAIL_HOST_USER',
                 [str(absent) + "@daiict.ac.in"],
