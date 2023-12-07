@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Home</title>
     <style>
@@ -8,10 +9,12 @@
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
         }
+
         #title {
             font-size: 24px;
             margin-bottom: 10px;
         }
+
         .container {
             display: inline-block;
             text-align: left;
@@ -21,40 +24,71 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
+
         .column {
             display: inline-block;
             width: 45%;
             vertical-align: top;
         }
-        a {
-            display: block;
-            margin: 5px 0;
-            text-decoration: none;
+
+        .dropdown {
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
             color: #333;
-            background-color: #e0e0e0;
-            padding: 10px;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
             border-radius: 5px;
             transition: background-color 0.3s;
         }
-        a:hover {
+
+        .dropdown-content a:hover {
             background-color: #3498db;
             color: #fff;
         }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1 id="title">Different links</h1>
         <div class="column">
-            <a href="/data/course_percentage/">Course wise percentage of all students</a>
-            <a href="/data/course_per_less_x/">Course wise students whose percentage is less than 'x' percentage</a>
-            <a href="/data/filter/">Day wise attendance for all students in particular course</a>
-            <a href="/data/individual_student/">Individual student's performance</a>
+            <div class="dropdown">
+                <a href="#">Courses</a>
+                <div class="dropdown-content">
+                    <a href="/data/course_percentage/">Course wise percentage of all students</a>
+                    <a href="/data/course_per_less_x/">Course wise students whose percentage is less than 'x' percentage</a>
+                    <a href="/data/filter/">Day wise attendance for all students in a particular course</a>
+                    <a href="/data/individual_student/">Individual student's performance</a>
+                </div>
+            </div>
         </div>
         <div class="column">
-            <a href="/data/update_registration/">Update course registration</a>
-            <a href="/data/course_registration/">View course registration</a>
+            <div class="dropdown">
+                <a href="#">Registration</a>
+                <div class="dropdown-content">
+                    <a href="/data/update_registration/">Update course registration</a>
+                    <a href="/data/course_registration/">View course registration</a>
+                </div>
+            </div>
         </div>
     </div>
 </body>
+
 </html>
